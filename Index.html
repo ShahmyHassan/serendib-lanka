@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serendib Lanka - Connecting Global Buyers with Trusted Sri Lankan Food Manufacturers</title>
+    <meta name="description" content="Serendib Lanka consultancy connects international buyers with certified Sri Lankan food manufacturers. From coconut to Ceylon spices, we match you with trusted producers.">
+    <meta name="keywords" content="Serendib Lanka, Serandib Lanka, Serandip Lanka, Serandeb Lanka, Sri Lankan food export consultancy, coconut suppliers Sri Lanka, Ceylon spices exporter, tropical fruit sourcing, Sri Lankan organic products, connect buyers Sri Lanka, Sri Lanka food manufacturers consultancy">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f0fdf4 100%);
+        }
+        
+        .tropical-gradient {
+            background: linear-gradient(135deg, #065f46 0%, #047857 50%, #059669 100%);
+        }
+        
+        .spice-gradient {
+            background: linear-gradient(135deg, #92400e 0%, #b45309 50%, #d97706 100%);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%23065f46'/%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%23065f46'/%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%23065f46'/%3E%3C/svg%3E") no-repeat;
+            background-size: cover;
+            opacity: 0.1;
+            animation: wave-animation 20s linear infinite;
+        }
+        
+        @keyframes wave-animation {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100px); }
+        }
+        
+        .product-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .step-line {
+            position: relative;
+        }
+        
+        .step-line::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -50%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #059669, transparent);
+            transform: translateY(-50%);
+        }
+        
+        .step-line:last-child::after {
+            display: none;
+        }
+        
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #059669;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .scroll-to-top.visible {
+            opacity: 1;
+        }
+        
+        .scroll-to-top:hover {
+            background: #047857;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold tropical-gradient bg-clip-text text-transparent">
+                        Serendib Lanka
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-gray-700 hover:text-emerald-600 transition-colors">Home</a>
+                        <a href="#about" class="text-gray-700 hover:text-emerald-600 transition-colors">About</a>
+                        <a href="#products" class="text-gray-700 hover:text-emerald-600 transition-colors">Products</a>
+                        <a href="#why-us" class="text-gray-700 hover:text-emerald-600 transition-colors">Why Choose Us</a>
+                        <a href="#process" class="text-gray-700 hover:text-emerald-600 transition-colors">Process</a>
+                        <a href="#contact" class="text-gray-700 hover:text-emerald-600 transition-colors">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 text-gray-700">Home</a>
+                <a href="#about" class="block px-3 py-2 text-gray-700">About</a>
+                <a href="#products" class="block px-3 py-2 text-gray-700">Products</a>
+                <a href="#why-us" class="block px-3 py-2 text-gray-700">Why Choose Us</a>
+                <a href="#process" class="block px-3 py-2 text-gray-700">Process</a>
+                <a href="#contact" class="block px-3 py-2 text-gray-700">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen gradient-bg flex items-center overflow-hidden">
+        <div class="wave"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center fade-in">
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                    Connecting Global Buyers with<br>
+                    <span class="tropical-gradient bg-clip-text text-transparent">Trusted Sri Lankan</span><br>
+                    Food Manufacturers
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                    From coconut to spices, we match you with certified producers you can trust.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="scrollToSection('products')" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105">
+                        Discover Our Products
+                    </button>
+                    <button onclick="scrollToSection('contact')" class="border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300">
+                        Start Your Sourcing Journey
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 floating">
+            <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">About Serendib Lanka</h2>
+                <div class="w-24 h-1 tropical-gradient mx-auto mb-8"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">Your Trusted Partner in Sri Lankan Food Sourcing</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Serendib Lanka is a premier consultancy specializing in connecting international buyers with Sri Lanka's finest certified food manufacturers and processors. With deep expertise in the Sri Lankan agricultural landscape and European market insights, we provide intelligent matchmaking services that ensure quality, reliability, and compliance.
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Our mission is to bridge the gap between global demand and Sri Lanka's exceptional food production capabilities, creating sustainable partnerships that benefit both buyers and local producers.
+                    </p>
+                    <a href="https://linkedin.com/company/serendib-lanka" target="_blank" class="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-semibold transition-colors">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd"></path>
+                        </svg>
+                        Visit Our LinkedIn Profile
+                    </a>
+                </div>
+                <div class="fade-in">
+                    <div class="bg-gradient-to-br from-emerald-50 to-blue-50 p-8 rounded-2xl">
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-emerald-600 mb-2">50+</div>
+                                <div class="text-gray-600">Certified Suppliers</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-emerald-600 mb-2">25+</div>
+                                <div class="text-gray-600">Countries Served</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-emerald-600 mb-2">100%</div>
+                                <div class="text-gray-600">Quality Assured</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-emerald-600 mb-2">24/7</div>
+                                <div class="text-gray-600">Support</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Portfolio -->
+    <section id="products" class="py-20 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">Our Product Portfolio</h2>
+                <div class="w-24 h-1 tropical-gradient mx-auto mb-8"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Discover Sri Lanka's finest food products, sourced from certified manufacturers and processors
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Coconut Products -->
+                <div class="product-card bg-white rounded-2xl p-8 shadow-lg fade-in">
+                    <div class="text-6xl mb-4">🥥</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Coconut-Based Products</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li>• Desiccated Coconut</li>
+                        <li>• Coconut Milk & Cream</li>
+                        <li>• Coconut Butter</li>
+                        <li>• Coconut Cubes</li>
+                    </ul>
+                </div>
+
+                <!-- Tropical Fruits -->
+                <div class="product-card bg-white rounded-2xl p-8 shadow-lg fade-in">
+                    <div class="text-6xl mb-4">🥭</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Tropical Fruits</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li>• Fresh Tropical Fruits</li>
+                        <li>• Dried Fruits</li>
+                        <li>• Canned Fruits</li>
+                        <li>• Fruit Concentrates</li>
+                    </ul>
+                </div>
+
+                <!-- Plant-Based Alternatives -->
+                <div class="product-card bg-white rounded-2xl p-8 shadow-lg fade-in">
+                    <div class="text-6xl mb-4">🌱</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Plant-Based Alternatives</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li>• Jackfruit Products</li>
+                        <li>• Banana Blossom</li>
+                        <li>• Plant-Based Proteins</li>
+                        <li>• Meat Alternatives</li>
+                    </ul>
+                </div>
+
+                <!-- Spices & Herbs -->
+                <div class="product-card bg-white rounded-2xl p-8 shadow-lg fade-in">
+                    <div class="text-6xl mb-4">🌶️</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Spices & Herbs</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li>• Ceylon Cinnamon</li>
+                        <li>• Black Pepper & Cloves</li>
+                        <li>• Nutmeg & Cardamom</li>
+                        <li>• Turmeric, Ginger & Chili</li>
+                    </ul>
+                </div>
+
+                <!-- Nutritional Foods -->
+                <div class="product-card bg-white rounded-2xl p-8 shadow-lg fade-in">
+                    <div class="text-6xl mb-4">🍃</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Nutritional & Functional Foods</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li>• Moringa Powder</li>
+                        <li>• King Coconut Water</li>
+                        <li>• Ceylon Tea</li>
+                        <li>• Superfood Blends</li>
+                    </ul>
+                </div>
+
+                <!-- Custom Solutions -->
+                <div class="product-card bg-white rounded-2xl p-8 shadow-lg fade-in">
+                    <div class="text-6xl mb-4">⚙️</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Custom Solutions</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li>• Private Label Products</li>
+                        <li>• Custom Formulations</li>
+                        <li>• Packaging Solutions</li>
+                        <li>• Bulk Processing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why-us" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">Why Choose Serendib Lanka</h2>
+                <div class="w-24 h-1 tropical-gradient mx-auto mb-8"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center fade-in">
+                    <div class="bg-emerald-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Certified Supplier Network</h3>
+                    <p class="text-gray-600 mb-4">All our partners hold international certifications including BRCGS, EU Organic, USDA Organic, JAS, Halal, and Fairtrade.</p>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm">BRCGS</span>
+                        <span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm">EU Organic</span>
+                        <span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm">USDA</span>
+                        <span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm">Halal</span>
+                    </div>
+                </div>
+                <div class="text-center fade-in">
+                    <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Tailor-Made Solutions</h3>
+                    <p class="text-gray-600">Custom consultancy solutions designed specifically for your business needs, market requirements, and quality standards.</p>
+                </div>
+                <div class="text-center fade-in">
+                    <div class="bg-orange-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Risk-Free Partnerships</h3>
+                    <p class="text-gray-600">Long-term sourcing partnerships with comprehensive quality assurance, compliance monitoring, and supply chain security.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Process -->
+    <section id="process" class="py-20 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">Our Process</h2>
+                <div class="w-24 h-1 tropical-gradient mx-auto mb-8"></div>
+                <p class="text-xl text-gray-600">A streamlined approach to connecting you with the right suppliers</p>
+            </div>
+            <div class="grid md:grid-cols-5 gap-8">
+                <div class="text-center fade-in step-line">
+                    <div class="bg-emerald-600 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">1</div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Identify</h3>
+                    <p class="text-gray-600 text-sm">We understand your specific product requirements and quality standards</p>
+                </div>
+                <div class="text-center fade-in step-line">
+                    <div class="bg-emerald-600 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">2</div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Verify</h3>
+                    <p class="text-gray-600 text-sm">Thorough verification of supplier certifications and production capabilities</p>
+                </div>
+                <div class="text-center fade-in step-line">
+                    <div class="bg-emerald-600 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">3</div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Customize</h3>
+                    <p class="text-gray-600 text-sm">Tailor solutions to match your business model and market needs</p>
+                </div>
+                <div class="text-center fade-in step-line">
+                    <div class="bg-emerald-600 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">4</div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Connect</h3>
+                    <p class="text-gray-600 text-sm">Facilitate direct connections with pre-qualified, certified suppliers</p>
+                </div>
+                <div class="text-center fade-in">
+                    <div class="bg-emerald-600 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">5</div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Deliver</h3>
+                    <p class="text-gray-600 text-sm">Ongoing support to ensure successful long-term partnerships</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">Let's Build Your Supply Chain Together</h2>
+                <div class="w-24 h-1 tropical-gradient mx-auto mb-8"></div>
+                <p class="text-xl text-gray-600">Ready to connect with Sri Lanka's finest food manufacturers? Get started today.</p>
+            </div>
+            <div class="max-w-2xl mx-auto">
+                <form class="bg-gradient-to-br from-emerald-50 to-blue-50 p-8 rounded-2xl shadow-lg fade-in">
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Full Name *</label>
+                            <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Email Address *</label>
+                            <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all">
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-semibold mb-2">Business/Company Name *</label>
+                        <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all">
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-semibold mb-2">Interested Products</label>
+                        <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all">
+                            <option>Select Product Category</option>
+                            <option>Coconut-Based Products</option>
+                            <option>Tropical Fruits</option>
+                            <option>Plant-Based Alternatives</option>
+                            <option>Spices & Herbs</option>
+                            <option>Nutritional & Functional Foods</option>
+                            <option>Custom Solutions</option>
+                            <option>Multiple Categories</option>
+                        </select>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-semibold mb-2">Additional Requirements</label>
+                        <textarea rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all" placeholder="Tell us about your specific requirements, certifications needed, volume expectations, etc."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105">
+                        Start Your Sourcing Journey
+                    </button>
+                    <p class="text-sm text-gray-500 mt-4 text-center">
+                        * This is a demo form. In a live website, this would connect to a backend service to process inquiries.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="text-2xl font-bold mb-4">Serendib Lanka</div>
+                    <p class="text-gray-400 mb-4">Connecting global buyers with trusted Sri Lankan food manufacturers since inception.</p>
+                    <div class="text-sm text-gray-500">
+                        <p>Alternative spellings: Serandib Lanka, Serandip Lanka, Serandeb Lanka</p>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#products" class="hover:text-white transition-colors">Products</a></li>
+                        <li><a href="#why-us" class="hover:text-white transition-colors">Why Choose Us</a></li>
+                        <li><a href="#process" class="hover:text-white transition-colors">Our Process</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Products</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Coconut Products</li>
+                        <li>Ceylon Spices</li>
+                        <li>Tropical Fruits</li>
+                        <li>Plant-Based Foods</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>📧 info@serendib-lanka.com</li>
+                        <li>📱 +94 XX XXX XXXX</li>
+                        <li>🌐 LinkedIn: /company/serendib-lanka</li>
+                        <li>📍 Colombo, Sri Lanka</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Serendib Lanka. All rights reserved. | Connecting Sri Lankan excellence with global markets.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" onclick="scrollToTop()">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <script>
+        // Smooth scrolling for navigation links
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Scroll to top functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', function() {
+            const scrollButton = document.querySelector('.scroll-to-top');
+            if (window.pageYOffset > 300) {
+                scrollButton.classList.add('visible');
+            } else {
+                scrollButton.classList.remove('visible');
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Smooth scrolling for all navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest! In a live website, this form would be processed by our backend system. We will contact you within 24 hours to discuss your sourcing needs.');
+        });
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.wave');
+            if (parallax) {
+                const speed = scrolled * 0.5;
+                parallax.style.transform = `translateY(${speed}px)`;
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9759a18ad71e5138',t:'MTc1NjI3NzM4OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
