@@ -7,128 +7,139 @@
     <meta name="description" content="Serendib Lanka (PVT) LTD - Leading Sri Lankan spices exporter, coconut suppliers, Ceylon tea exporter, tropical fruits Sri Lanka. Premium superfoods from the Spice Island to global markets.">
     <meta name="keywords" content="Serendib Lanka, Serandib Lanka, Serandip Lanka, Sri Lankan spices exporter, coconut suppliers Sri Lanka, Ceylon tea exporter, tropical fruits Sri Lanka, superfoods Sri Lanka, Ceylon cinnamon, black pepper, desiccated coconut, king coconut water, moringa powder, jackfruit products, authentic Sri Lankan flavors, spice island exports">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-gold: #D4AF37;
-            --deep-gold: #B8860B;
-            --emerald: #10B981;
-            --deep-emerald: #047857;
-            --spice-red: #DC2626;
-            --warm-orange: #EA580C;
-            --rich-brown: #92400E;
-            --cream: #FEF7ED;
-            --dark-slate: #1E293B;
+        * {
+            font-family: 'Inter', sans-serif;
         }
         
-        .font-display { font-family: 'Playfair Display', serif; }
-        .font-body { font-family: 'Inter', sans-serif; }
+        .font-heading {
+            font-family: 'Poppins', sans-serif;
+        }
         
-        /* Advanced Hero Styles */
-        .hero-section {
-            background: linear-gradient(135deg, #0F172A 0%, #1E293B 25%, #374151 50%, #1F2937 75%, #111827 100%);
-            position: relative;
-            overflow: hidden;
+        /* Clean Hero Section */
+        .hero-minimal {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
             min-height: 100vh;
+            position: relative;
         }
         
-        .hero-overlay {
+        .hero-pattern {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 30% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
-            z-index: 2;
+            opacity: 0.03;
+            background-image: radial-gradient(circle at 25% 25%, #64748b 2px, transparent 2px),
+                              radial-gradient(circle at 75% 75%, #64748b 1px, transparent 1px);
+            background-size: 60px 60px;
         }
         
-        .hero-content {
+        .hero-content-minimal {
             position: relative;
             z-index: 10;
         }
         
-        .hero-title {
-            background: linear-gradient(135deg, #FFFFFF 0%, #D4AF37 25%, #FFFFFF 50%, #10B981 75%, #FFFFFF 100%);
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: heroGradientFlow 8s ease-in-out infinite;
+        .title-minimal {
+            color: #1e293b;
+            font-weight: 600;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
         }
         
-        @keyframes heroGradientFlow {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        .subtitle-minimal {
+            color: #475569;
+            font-weight: 400;
+            line-height: 1.6;
         }
         
-        .hero-subtitle {
-            background: linear-gradient(90deg, #D4AF37, #10B981, #EA580C);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: subtitleShimmer 6s ease-in-out infinite;
+        .btn-primary-minimal {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 16px 32px;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
         }
         
-        @keyframes subtitleShimmer {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        .btn-primary-minimal:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.25);
         }
         
-        .floating-spice {
+        .btn-secondary-minimal {
+            background: transparent;
+            color: #64748b;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 14px 30px;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-secondary-minimal:hover {
+            border-color: #cbd5e1;
+            color: #475569;
+            transform: translateY(-1px);
+        }
+        
+        .floating-element {
             position: absolute;
-            animation: floatSpice 15s ease-in-out infinite;
-            opacity: 0.6;
+            animation: float 6s ease-in-out infinite;
         }
         
-        @keyframes floatSpice {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            25% { transform: translateY(-30px) rotate(90deg); }
-            50% { transform: translateY(-15px) rotate(180deg); }
-            75% { transform: translateY(-25px) rotate(270deg); }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
         
-        .cta-button-primary {
-            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--deep-gold) 100%);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        .spice-icon {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            font-size: 20px;
         }
         
-        .cta-button-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.6s ease;
+        /* Rest of existing styles remain the same */
+        .gradient-bg {
+            background: linear-gradient(135deg, #2F4F4F 0%, #36454F 50%, #4B0082 100%);
         }
         
-        .cta-button-primary:hover::before {
-            left: 100%;
+        :root {
+            --primary-gold: #FFD700;
+            --deep-gold: #B8860B;
+            --royal-gold: #DAA520;
+            --emerald: #50C878;
+            --deep-emerald: #228B22;
+            --jade: #00A86B;
+            --spice-red: #8B0000;
+            --crimson: #DC143C;
+            --warm-orange: #FF8C00;
+            --burnt-orange: #CC5500;
+            --rich-brown: #8B4513;
+            --mahogany: #C04000;
+            --cream: #FFF8DC;
+            --ivory: #FFFFF0;
+            --dark-slate: #2F4F4F;
+            --charcoal: #36454F;
+            --deep-purple: #4B0082;
+            --royal-purple: #663399;
         }
         
-        .cta-button-primary:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.4);
-        }
-        
-        .cta-button-secondary {
-            background: rgba(16, 185, 129, 0.1);
-            border: 2px solid var(--emerald);
-            backdrop-filter: blur(20px);
-            transition: all 0.4s ease;
-        }
-        
-        .cta-button-secondary:hover {
-            background: var(--emerald);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
-        }
+        .font-display { font-family: 'Roboto', sans-serif; }
+        .font-body { font-family: 'Open Sans', sans-serif; }
+        .font-accent { font-family: 'Roboto', sans-serif; }
         
         /* Completely New About Section */
         .about-grid {
@@ -139,12 +150,13 @@
         }
         
         .story-card {
-            background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+            background: linear-gradient(135deg, #FFFFF0 0%, #FFF8DC 50%, #FFFFFF 100%);
             border-radius: 2rem;
             padding: 3rem;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 25px 50px rgba(139, 69, 19, 0.15);
             position: relative;
             overflow: hidden;
+            border: 1px solid rgba(255, 215, 0, 0.2);
         }
         
         .story-card::before {
@@ -154,7 +166,7 @@
             left: 0;
             right: 0;
             height: 6px;
-            background: linear-gradient(90deg, var(--primary-gold), var(--emerald), var(--warm-orange));
+            background: linear-gradient(90deg, var(--primary-gold), var(--emerald), var(--warm-orange), var(--crimson), var(--deep-purple));
         }
         
         .heritage-timeline {
@@ -207,7 +219,7 @@
         }
         
         .stat-item:hover {
-            transform: translateY(-8px);
+            transform: translateY(-3px);
         }
         
         .stat-number {
@@ -221,7 +233,7 @@
         
         /* Revolutionary Why Choose Us Section */
         .why-choose-container {
-            background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 50%, #F1F5F9 100%);
+            background: linear-gradient(135deg, #2F4F4F 0%, #36454F 30%, #4B0082 70%, #663399 100%);
             position: relative;
         }
         
@@ -233,13 +245,14 @@
         }
         
         .advantage-card {
-            background: white;
+            background: linear-gradient(135deg, #FFFFF0 0%, #FFF8DC 100%);
             border-radius: 2rem;
             padding: 3rem;
             position: relative;
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(212, 175, 55, 0.1);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 15px 35px rgba(139, 69, 19, 0.1);
         }
         
         .advantage-card::before {
@@ -248,8 +261,8 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-gold), var(--emerald), var(--warm-orange));
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary-gold), var(--emerald), var(--warm-orange), var(--crimson), var(--deep-purple));
             transform: scaleX(0);
             transition: transform 0.4s ease;
         }
@@ -259,8 +272,8 @@
         }
         
         .advantage-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
         
         .advantage-icon {
@@ -278,24 +291,17 @@
         .advantage-icon::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transform: rotate(45deg);
-            transition: all 0.6s ease;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
             opacity: 0;
+            transition: opacity 0.3s ease;
         }
         
         .advantage-card:hover .advantage-icon::before {
             opacity: 1;
-            animation: iconShimmer 1.5s ease-in-out;
-        }
-        
-        @keyframes iconShimmer {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
         
         /* Innovative Contact Section */
@@ -385,13 +391,13 @@
         
         /* Advanced Process Journey */
         .process-container {
-            background: linear-gradient(135deg, #FAFAFA 0%, #F5F5F5 50%, #FAFAFA 100%);
+            background: linear-gradient(135deg, #FFFFF0 0%, #FFF8DC 50%, #FFFFF0 100%);
             position: relative;
         }
         
         .process-steps {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
             position: relative;
         }
@@ -401,10 +407,11 @@
             top: 50%;
             left: 10%;
             right: 10%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-gold), var(--emerald), var(--warm-orange), var(--spice-red), var(--deep-emerald));
-            border-radius: 2px;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary-gold), var(--emerald), var(--warm-orange), var(--crimson), var(--deep-purple), var(--jade));
+            border-radius: 3px;
             transform: translateY(-50%);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
         }
         
         .process-progress {
@@ -457,8 +464,8 @@
         }
         
         .process-step:hover .step-circle {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
         
         .step-icon {
@@ -486,8 +493,8 @@
         }
         
         .product-card-advanced:hover {
-            transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
         
         .product-header {
@@ -505,7 +512,7 @@
         }
         
         .product-card-advanced:hover .product-emoji-large {
-            transform: scale(1.2) rotateY(15deg);
+            transform: scale(1.1);
         }
         
         .product-features {
@@ -552,7 +559,7 @@
                 grid-template-columns: 1fr;
             }
             
-            .hero-title {
+            .title-minimal {
                 font-size: 2.5rem;
             }
         }
@@ -576,26 +583,26 @@
 </head>
 <body class="font-body bg-white overflow-x-hidden">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-lg z-50 transition-all duration-300">
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-sm z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
+            <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
-                    <div class="text-3xl font-display font-bold">
-                        <span style="background: linear-gradient(135deg, var(--primary-gold), var(--emerald)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Serendib Lanka</span>
+                    <div class="text-xl font-heading font-semibold text-slate-800">
+                        Serendib Lanka
                     </div>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#home" class="text-gray-700 hover:text-yellow-600 transition-colors font-medium">Home</a>
-                        <a href="#about" class="text-gray-700 hover:text-yellow-600 transition-colors font-medium">About</a>
-                        <a href="#products" class="text-gray-700 hover:text-yellow-600 transition-colors font-medium">Products</a>
-                        <a href="#why-us" class="text-gray-700 hover:text-yellow-600 transition-colors font-medium">Why Choose Us</a>
-                        <a href="#process" class="text-gray-700 hover:text-yellow-600 transition-colors font-medium">Process</a>
-                        <a href="#contact" class="text-gray-700 hover:text-yellow-600 transition-colors font-medium">Contact</a>
+                        <a href="#home" class="text-slate-600 hover:text-blue-600 transition-colors font-medium text-sm">Home</a>
+                        <a href="#about" class="text-slate-600 hover:text-blue-600 transition-colors font-medium text-sm">About</a>
+                        <a href="#products" class="text-slate-600 hover:text-blue-600 transition-colors font-medium text-sm">Products</a>
+                        <a href="#why-us" class="text-slate-600 hover:text-blue-600 transition-colors font-medium text-sm">Why Choose Us</a>
+                        <a href="#process" class="text-slate-600 hover:text-blue-600 transition-colors font-medium text-sm">Process</a>
+                        <a href="#contact" class="text-slate-600 hover:text-blue-600 transition-colors font-medium text-sm">Contact</a>
                     </div>
                 </div>
                 <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-gray-700">
+                    <button id="mobile-menu-btn" class="text-slate-600">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
@@ -605,52 +612,60 @@
         </div>
         <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="#home" class="block px-3 py-2 text-gray-700">Home</a>
-                <a href="#about" class="block px-3 py-2 text-gray-700">About</a>
-                <a href="#products" class="block px-3 py-2 text-gray-700">Products</a>
-                <a href="#why-us" class="block px-3 py-2 text-gray-700">Why Choose Us</a>
-                <a href="#process" class="block px-3 py-2 text-gray-700">Process</a>
-                <a href="#contact" class="block px-3 py-2 text-gray-700">Contact</a>
+                <a href="#home" class="block px-3 py-2 text-slate-600 text-sm">Home</a>
+                <a href="#about" class="block px-3 py-2 text-slate-600 text-sm">About</a>
+                <a href="#products" class="block px-3 py-2 text-slate-600 text-sm">Products</a>
+                <a href="#why-us" class="block px-3 py-2 text-slate-600 text-sm">Why Choose Us</a>
+                <a href="#process" class="block px-3 py-2 text-slate-600 text-sm">Process</a>
+                <a href="#contact" class="block px-3 py-2 text-slate-600 text-sm">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Revolutionary Hero Section -->
-    <section id="home" class="hero-section flex items-center justify-center relative">
-        <canvas id="hero-canvas" class="absolute inset-0 z-1"></canvas>
-        <div class="hero-overlay"></div>
+    <!-- Clean Minimal Hero Section -->
+    <section id="home" class="hero-minimal flex items-center justify-center relative">
+        <div class="hero-pattern"></div>
         
         <!-- Floating Spice Elements -->
-        <div class="floating-spice" style="top: 15%; left: 10%; font-size: 3rem;">🌶️</div>
-        <div class="floating-spice" style="top: 25%; right: 15%; font-size: 2.5rem; animation-delay: -2s;">🥥</div>
-        <div class="floating-spice" style="bottom: 30%; left: 20%; font-size: 2rem; animation-delay: -4s;">🍃</div>
-        <div class="floating-spice" style="bottom: 20%; right: 25%; font-size: 3.5rem; animation-delay: -6s;">⭐</div>
-        <div class="floating-spice" style="top: 40%; left: 5%; font-size: 2rem; animation-delay: -8s;">🌿</div>
-        <div class="floating-spice" style="top: 60%; right: 10%; font-size: 2.5rem; animation-delay: -10s;">🔥</div>
+        <div class="floating-element" style="top: 15%; left: 10%; animation-delay: 0s;">
+            <div class="spice-icon">🌿</div>
+        </div>
+        <div class="floating-element" style="top: 25%; right: 15%; animation-delay: 1s;">
+            <div class="spice-icon">🥥</div>
+        </div>
+        <div class="floating-element" style="top: 60%; left: 8%; animation-delay: 2s;">
+            <div class="spice-icon">🍃</div>
+        </div>
+        <div class="floating-element" style="top: 70%; right: 12%; animation-delay: 3s;">
+            <div class="spice-icon">⭐</div>
+        </div>
+        <div class="floating-element" style="top: 40%; left: 85%; animation-delay: 4s;">
+            <div class="spice-icon">🌶️</div>
+        </div>
         
-        <div class="hero-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="hero-content-minimal max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="reveal-up">
-                <h1 class="hero-title font-display text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight">
-                    The Spice Island's<br>
-                    <span class="hero-subtitle">Premium Export House</span>
+                <h1 class="title-minimal font-heading text-4xl md:text-6xl lg:text-7xl mb-6">
+                    Premium Sri Lankan<br>
+                    <span class="text-blue-600">Spices & Foods</span>
                 </h1>
-                <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed font-light">
-                    Serendib Lanka connects authentic Ceylon flavors with global markets through premium spices, coconut products, and tropical superfoods that tell the story of Sri Lanka's rich heritage
+                <p class="subtitle-minimal text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+                    Direct from the spice island to your market. Authentic flavors, reliable supply chain, and uncompromising quality for global partners.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                    <button onclick="scrollToSection('products')" class="cta-button-primary text-white px-12 py-6 rounded-2xl text-xl font-semibold relative z-10">
-                        Explore Our Heritage
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <button onclick="scrollToSection('products')" class="btn-primary-minimal">
+                        View Products
                     </button>
-                    <button onclick="scrollToSection('contact')" class="cta-button-secondary text-emerald-300 px-12 py-6 rounded-2xl text-xl font-semibold">
-                        Start Your Journey
+                    <button onclick="scrollToSection('contact')" class="btn-secondary-minimal">
+                        Get Quote
                     </button>
                 </div>
             </div>
         </div>
         
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white opacity-70">
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-slate-400">
             <div class="animate-bounce">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
                 </svg>
             </div>
@@ -661,33 +676,33 @@
     <section id="about" class="py-24 bg-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-20 reveal-up">
-                <h2 class="font-display text-5xl md:text-6xl font-bold text-gray-900 mb-6">Our Story</h2>
+                <h2 class="font-display text-5xl md:text-6xl font-bold text-gray-900 mb-6">About Serendib Lanka</h2>
                 <div class="w-24 h-1 mx-auto mb-8" style="background: linear-gradient(90deg, var(--primary-gold), var(--emerald));"></div>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                    From the ancient spice routes to modern global markets, we carry forward Sri Lanka's legacy of exceptional flavors
+                    Serendib Lanka (PVT) LTD is a leading exporter of premium agricultural products from the island of Sri Lanka. We are dedicated to delivering the highest quality spices, teas, coconuts, and superfoods, sourced with meticulous care to preserve the authentic flavors of Sri Lanka.
                 </p>
             </div>
             
             <div class="about-grid">
                 <div class="reveal-up stagger-delay" style="--delay: 1">
                     <div class="story-card">
-                        <h3 class="font-display text-3xl font-bold text-gray-900 mb-6">Serendib Lanka (PVT) LTD</h3>
+                        <h3 class="font-accent text-3xl font-bold text-gray-900 mb-6 italic">Serendib Lanka (PVT) LTD</h3>
                         <p class="text-lg text-gray-700 mb-8 leading-relaxed">
-                            Born from a passion for sharing Sri Lanka's authentic flavors with the world, Serendib Lanka represents three generations of expertise in sourcing, processing, and exporting the finest Ceylon products. We are the bridge between Sri Lanka's rich agricultural heritage and global culinary excellence.
+                            Our commitment to sustainability and ethical practices ensures that every product we export is of unparalleled quality, preserving the authentic flavors of Sri Lanka.
                         </p>
                         
                         <div class="heritage-timeline">
                             <div class="timeline-item">
-                                <h4 class="font-semibold text-gray-900 mb-2">Heritage & Tradition</h4>
-                                <p class="text-gray-600">Rooted in centuries-old spice cultivation traditions passed down through generations of Sri Lankan farmers and artisans.</p>
+                                <h4 class="font-semibold text-gray-900 mb-2">Heritage & Expertise</h4>
+                                <p class="text-gray-600">Rooted in centuries-old spice cultivation traditions and refined by modern expertise.</p>
                             </div>
                             <div class="timeline-item">
                                 <h4 class="font-semibold text-gray-900 mb-2">Global Vision</h4>
-                                <p class="text-gray-600">Expanding Sri Lanka's culinary footprint across 25+ countries with authentic, premium-quality products.</p>
+                                <p class="text-gray-600">Connecting global markets with Sri Lanka's finest flavors through our extensive network and logistical capabilities.</p>
                             </div>
                             <div class="timeline-item">
                                 <h4 class="font-semibold text-gray-900 mb-2">Sustainable Future</h4>
-                                <p class="text-gray-600">Committed to sustainable farming practices and fair trade partnerships that benefit local communities.</p>
+                                <p class="text-gray-600">Committed to sustainable practices that respect the environment and ensure the future of our valuable resources.</p>
                             </div>
                         </div>
                     </div>
@@ -696,31 +711,63 @@
                 <div class="reveal-up stagger-delay" style="--delay: 2">
                     <div class="stats-showcase">
                         <div class="stat-item">
-                            <div class="stat-number">25+</div>
-                            <div class="text-gray-600 font-medium text-lg">Countries Served</div>
-                            <p class="text-sm text-gray-500 mt-2">Across 5 continents</p>
+                            <div class="stat-number">✓</div>
+                            <div class="text-gray-600 font-medium text-lg">Proven Supply Chain</div>
+                            <p class="text-sm text-gray-500 mt-2">Reliable network for consistent availability</p>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number">500+</div>
-                            <div class="text-gray-600 font-medium text-lg">Product Varieties</div>
-                            <p class="text-sm text-gray-500 mt-2">Premium selections</p>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">15+</div>
-                            <div class="text-gray-600 font-medium text-lg">Years Experience</div>
-                            <p class="text-sm text-gray-500 mt-2">In global exports</p>
+                            <div class="stat-number">🌍</div>
+                            <div class="text-gray-600 font-medium text-lg">Global Partnerships</div>
+                            <p class="text-sm text-gray-500 mt-2">Strong, lasting client relationships</p>
                         </div>
                         <div class="stat-item">
                             <div class="stat-number">100%</div>
                             <div class="text-gray-600 font-medium text-lg">Quality Assured</div>
-                            <p class="text-sm text-gray-500 mt-2">International standards</p>
+                            <p class="text-sm text-gray-500 mt-2">Stringent internal protocols</p>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">📦</div>
+                            <div class="text-gray-600 font-medium text-lg">Extensive Range</div>
+                            <p class="text-sm text-gray-500 mt-2">Diverse selection for market demand</p>
                         </div>
                     </div>
                     
                     <div class="mt-8 p-6 bg-gradient-to-r from-yellow-50 to-emerald-50 rounded-2xl">
-                        <h4 class="font-display text-2xl font-bold text-gray-900 mb-4">Our Mission</h4>
+                        <h4 class="font-accent text-2xl font-bold text-gray-900 mb-4 italic">Our Mission</h4>
                         <p class="text-gray-700 leading-relaxed text-lg">
-                            To be the world's most trusted source of authentic Sri Lankan food products, connecting global markets with the island's finest flavors while supporting sustainable agriculture and local communities.
+                            To be the world's most trusted source of authentic Sri Lankan food products, connecting global markets with the island's finest flavors while promoting responsible and ethical practices.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="py-24 bg-gradient-to-br from-emerald-50 to-teal-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20 reveal-up">
+                <h2 class="font-display text-5xl md:text-6xl font-bold text-gray-900 mb-6">From the Earth to Your Hands</h2>
+                <div class="w-24 h-1 mx-auto mb-8" style="background: linear-gradient(90deg, var(--primary-gold), var(--emerald));"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="reveal-up stagger-delay" style="--delay: 1">
+                    <div class="bg-white rounded-3xl p-8 shadow-xl">
+                        <div class="text-6xl mb-6">🌱</div>
+                        <h3 class="font-accent text-3xl font-bold text-gray-900 mb-6 italic">The Journey Begins</h3>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                            Our journey begins with the earth. We follow sustainable practices to cultivate and source our products, ensuring they are grown with care and respect for the environment.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="reveal-up stagger-delay" style="--delay: 2">
+                    <div class="bg-white rounded-3xl p-8 shadow-xl">
+                        <div class="text-6xl mb-6">🔍</div>
+                        <h3 class="font-accent text-3xl font-bold text-gray-900 mb-6 italic">Quality & Transparency</h3>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                            Every step of our process is meticulously monitored to meet international standards. We believe in providing a product that is as pure as nature intended.
                         </p>
                     </div>
                 </div>
@@ -732,7 +779,7 @@
     <section id="products" class="py-24 bg-gradient-to-br from-gray-50 to-gray-100 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-20 reveal-up">
-                <h2 class="font-display text-5xl md:text-6xl font-bold text-gray-900 mb-6">Our Products</h2>
+                <h2 class="font-display text-5xl md:text-6xl font-bold text-gray-900 mb-6">Our Premium Products</h2>
                 <div class="w-24 h-1 mx-auto mb-8" style="background: linear-gradient(90deg, var(--primary-gold), var(--emerald));"></div>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                     Premium Sri Lankan food products that capture the essence of the Spice Island
@@ -740,165 +787,57 @@
             </div>
             
             <div class="product-showcase">
-                <!-- Coconut Products -->
+                <!-- Ceylon Cinnamon -->
                 <div class="product-card-advanced reveal-up stagger-delay" style="--delay: 1">
-                    <div class="product-header" style="background: linear-gradient(135deg, #FEF7ED 0%, #FFFFFF 100%);">
-                        <div class="product-emoji-large">🥥</div>
-                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Coconut Products</h3>
-                        <p class="text-gray-600">Pure Ceylon coconut excellence</p>
-                    </div>
-                    <div class="product-features">
-                        <div class="feature-item">
-                            <div class="feature-dot"></div>
-                            <span class="text-gray-700">Desiccated Coconut</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-dot"></div>
-                            <span class="text-gray-700">Coconut Milk & Cream</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-dot"></div>
-                            <span class="text-gray-700">Virgin Coconut Oil</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-dot"></div>
-                            <span class="text-gray-700">Coconut Chips & Flakes</span>
-                        </div>
+                    <div class="product-header" style="background: linear-gradient(135deg, #FEF3C7 0%, #FFFFFF 100%);">
+                        <div class="product-emoji-large">🌿</div>
+                        <h3 class="font-accent text-2xl font-bold text-gray-900 mb-2">Ceylon Cinnamon</h3>
+                        <p class="text-gray-600">Known as "True Cinnamon," our Ceylon Cinnamon is celebrated for its delicate flavor and subtle aroma.</p>
                     </div>
                 </div>
 
-                <!-- Ceylon Spices -->
+                <!-- Black Pepper -->
                 <div class="product-card-advanced reveal-up stagger-delay" style="--delay: 2">
-                    <div class="product-header" style="background: linear-gradient(135deg, #FEF3C7 0%, #FFFFFF 100%);">
-                        <div class="product-emoji-large">🌶️</div>
-                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Ceylon Spices</h3>
-                        <p class="text-gray-600">World's finest spice collection</p>
+                    <div class="product-header" style="background: linear-gradient(135deg, #F3F4F6 0%, #FFFFFF 100%);">
+                        <div class="product-emoji-large">⚫</div>
+                        <h3 class="font-accent text-2xl font-bold text-gray-900 mb-2">Black Pepper</h3>
+                        <p class="text-gray-600">Our Sri Lankan black pepper offers a bold, pungent flavor that adds a spicy kick to any dish.</p>
                     </div>
-                    <div class="product-features">
-                        <div class="feature-item">
-                            <div class="feature-dot"></div>
-                            <span class="text-gray-700">Ceylon Cinnamon</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-dot"></div>
-                            <span class="text-gray-700">Black Pepper & Cloves</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-dot"></div>
-                            <span class="text-gray-700">Nutmeg & Mace</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-dot"></div>
-                            <span class="text-gray-700">Cardamom & Vanilla</span>
-                        </div>
+                </div>
+
+                <!-- Desiccated Coconut -->
+                <div class="product-card-advanced reveal-up stagger-delay" style="--delay: 3">
+                    <div class="product-header" style="background: linear-gradient(135deg, #FEF7ED 0%, #FFFFFF 100%);">
+                        <div class="product-emoji-large">🥥</div>
+                        <h3 class="font-accent text-2xl font-bold text-gray-900 mb-2">Desiccated Coconut</h3>
+                        <p class="text-gray-600">Premium desiccated coconut, a versatile ingredient for confectionery, baked goods, and curries.</p>
+                    </div>
+                </div>
+
+                <!-- King Coconut Water -->
+                <div class="product-card-advanced reveal-up stagger-delay" style="--delay: 4">
+                    <div class="product-header" style="background: linear-gradient(135deg, #ECFDF5 0%, #FFFFFF 100%);">
+                        <div class="product-emoji-large">🥤</div>
+                        <h3 class="font-accent text-2xl font-bold text-gray-900 mb-2">King Coconut Water</h3>
+                        <p class="text-gray-600">A natural, refreshing beverage rich in electrolytes, sourced directly from King Coconut trees.</p>
+                    </div>
+                </div>
+
+                <!-- Ceylon Tea -->
+                <div class="product-card-advanced reveal-up stagger-delay" style="--delay: 5">
+                    <div class="product-header" style="background: linear-gradient(135deg, #F0FDF4 0%, #FFFFFF 100%);">
+                        <div class="product-emoji-large">🍃</div>
+                        <h3 class="font-accent text-2xl font-bold text-gray-900 mb-2">Ceylon Tea</h3>
+                        <p class="text-gray-600">Exporting a variety of world-renowned Ceylon teas, from classic black teas to fragrant green teas.</p>
                     </div>
                 </div>
 
                 <!-- Tropical Fruits -->
-                <div class="product-card-advanced reveal-up stagger-delay" style="--delay: 3">
+                <div class="product-card-advanced reveal-up stagger-delay" style="--delay: 6">
                     <div class="product-header" style="background: linear-gradient(135deg, #FEF3E2 0%, #FFFFFF 100%);">
                         <div class="product-emoji-large">🥭</div>
-                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Tropical Fruits</h3>
-                        <p class="text-gray-600">Fresh island flavors</p>
-                    </div>
-                    <div class="product-features">
-                        <div class="feature-item">
-                            <div class="feature-dot"></div>
-                            <span class="text-gray-700">Fresh Tropical Selection</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-dot"></div>
-                            <span class="text-gray-700">Dried Fruit Varieties</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-dot"></div>
-                            <span class="text-gray-700">Fruit Concentrates</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-dot"></div>
-                            <span class="text-gray-700">Exotic Preserves</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Plant-Based Foods -->
-                <div class="product-card-advanced reveal-up stagger-delay" style="--delay: 4">
-                    <div class="product-header" style="background: linear-gradient(135deg, #ECFDF5 0%, #FFFFFF 100%);">
-                        <div class="product-emoji-large">🌱</div>
-                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Plant-Based Foods</h3>
-                        <p class="text-gray-600">Sustainable nutrition</p>
-                    </div>
-                    <div class="product-features">
-                        <div class="feature-item">
-                            <div class="feature-dot"></div>
-                            <span class="text-gray-700">Jackfruit Products</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-dot"></div>
-                            <span class="text-gray-700">Plant Proteins</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-dot"></div>
-                            <span class="text-gray-700">Meat Alternatives</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-dot"></div>
-                            <span class="text-gray-700">Superfood Blends</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tea & Superfoods -->
-                <div class="product-card-advanced reveal-up stagger-delay" style="--delay: 5">
-                    <div class="product-header" style="background: linear-gradient(135deg, #F0FDF4 0%, #FFFFFF 100%);">
-                        <div class="product-emoji-large">🍃</div>
-                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Tea & Superfoods</h3>
-                        <p class="text-gray-600">Wellness from nature</p>
-                    </div>
-                    <div class="product-features">
-                        <div class="feature-item">
-                            <div class="feature-dot"></div>
-                            <span class="text-gray-700">Premium Ceylon Tea</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-dot"></div>
-                            <span class="text-gray-700">King Coconut Water</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-dot"></div>
-                            <span class="text-gray-700">Moringa Powder</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-dot"></div>
-                            <span class="text-gray-700">Herbal Wellness Teas</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Custom Solutions -->
-                <div class="product-card-advanced reveal-up stagger-delay" style="--delay: 6">
-                    <div class="product-header" style="background: linear-gradient(135deg, #F3E8FF 0%, #FFFFFF 100%);">
-                        <div class="product-emoji-large">⚙️</div>
-                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Custom Solutions</h3>
-                        <p class="text-gray-600">Tailored for your needs</p>
-                    </div>
-                    <div class="product-features">
-                        <div class="feature-item">
-                            <div class="feature-dot"></div>
-                            <span class="text-gray-700">Private Label Products</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-dot"></div>
-                            <span class="text-gray-700">Bulk Supply Solutions</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-dot"></div>
-                            <span class="text-gray-700">Custom Formulations</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-dot"></div>
-                            <span class="text-gray-700">Packaging Solutions</span>
-                        </div>
+                        <h3 class="font-accent text-2xl font-bold text-gray-900 mb-2">Tropical Fruits</h3>
+                        <p class="text-gray-600">A selection of fresh and dehydrated tropical fruits, including mango, pineapple, and jackfruit.</p>
                     </div>
                 </div>
             </div>
@@ -909,9 +848,9 @@
     <section id="why-us" class="py-24 why-choose-container relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-20 reveal-up">
-                <h2 class="font-display text-5xl md:text-6xl font-bold text-gray-900 mb-6">Why Choose Serendib Lanka</h2>
+                <h2 class="font-display text-5xl md:text-6xl font-bold text-white mb-6">Why Choose Serendib Lanka</h2>
                 <div class="w-24 h-1 mx-auto mb-8" style="background: linear-gradient(90deg, var(--primary-gold), var(--emerald));"></div>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
                     Your trusted partner for authentic Sri Lankan excellence
                 </p>
             </div>
@@ -920,80 +859,72 @@
                 <div class="advantage-card reveal-up stagger-delay" style="--delay: 1">
                     <div class="advantage-icon" style="background: linear-gradient(135deg, #FEF3C7, #FDE68A);">
                         <svg class="w-10 h-10 text-yellow-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
                         </svg>
                     </div>
-                    <h3 class="font-display text-2xl font-bold text-gray-900 mb-4">International Certifications</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed text-lg">
-                        Comprehensive certifications ensuring global compliance and premium quality standards across all our product lines.
+                    <h3 class="font-accent text-2xl font-bold text-gray-900 mb-4">Competitive Pricing</h3>
+                    <p class="text-gray-600 leading-relaxed text-lg">
+                        Our direct supply chain model and operational efficiency allow us to offer highly competitive pricing without compromising on quality.
                     </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">BRCGS</span>
-                        <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">ISO 22000</span>
-                        <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">HACCP</span>
-                        <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">EU Organic</span>
-                        <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">USDA</span>
-                        <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">Halal</span>
-                    </div>
                 </div>
                 
                 <div class="advantage-card reveal-up stagger-delay" style="--delay: 2">
+                    <div class="advantage-icon" style="background: linear-gradient(135deg, #F3E8FF, #E9D5FF);">
+                        <svg class="w-10 h-10 text-purple-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-accent text-2xl font-bold text-gray-900 mb-4">Comprehensive Quality Control</h3>
+                    <p class="text-gray-600 leading-relaxed text-lg">
+                        We have a multi-stage quality control process to ensure every batch meets our stringent standards for purity, flavor, and consistency.
+                    </p>
+                </div>
+                
+                <div class="advantage-card reveal-up stagger-delay" style="--delay: 3">
                     <div class="advantage-icon" style="background: linear-gradient(135deg, #DBEAFE, #BFDBFE);">
                         <svg class="w-10 h-10 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
                     </div>
-                    <h3 class="font-display text-2xl font-bold text-gray-900 mb-4">Direct Supply Chain Excellence</h3>
+                    <h3 class="font-accent text-2xl font-bold text-gray-900 mb-4">Direct Supply Chain Excellence</h3>
                     <p class="text-gray-600 leading-relaxed text-lg">
-                        Streamlined supply chain with direct producer relationships ensuring competitive pricing, consistent quality, and reliable delivery schedules for your business success.
+                        Our streamlined supply chain provides unmatched efficiency, consistent quality, and reliable delivery schedules for your business success.
                     </p>
                 </div>
                 
-                <div class="advantage-card reveal-up stagger-delay" style="--delay: 3">
+                <div class="advantage-card reveal-up stagger-delay" style="--delay: 4">
                     <div class="advantage-icon" style="background: linear-gradient(135deg, #D1FAE5, #A7F3D0);">
                         <svg class="w-10 h-10 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="font-display text-2xl font-bold text-gray-900 mb-4">Global Reach & Expertise</h3>
+                    <h3 class="font-accent text-2xl font-bold text-gray-900 mb-4">Global Reach & Expertise</h3>
                     <p class="text-gray-600 leading-relaxed text-lg">
-                        Serving 25+ countries with deep understanding of international markets, customs regulations, and cultural preferences for seamless global trade.
-                    </p>
-                </div>
-                
-                <div class="advantage-card reveal-up stagger-delay" style="--delay: 4">
-                    <div class="advantage-icon" style="background: linear-gradient(135deg, #FEE2E2, #FECACA);">
-                        <svg class="w-10 h-10 text-red-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="font-display text-2xl font-bold text-gray-900 mb-4">Sustainable & Ethical Practices</h3>
-                    <p class="text-gray-600 leading-relaxed text-lg">
-                        Committed to sustainable farming, fair trade partnerships, and environmental responsibility while supporting local Sri Lankan communities and preserving traditional methods.
+                        We have a deep understanding of international markets and customs regulations to ensure seamless global trade for your orders.
                     </p>
                 </div>
                 
                 <div class="advantage-card reveal-up stagger-delay" style="--delay: 5">
-                    <div class="advantage-icon" style="background: linear-gradient(135deg, #F3E8FF, #E9D5FF);">
-                        <svg class="w-10 h-10 text-purple-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="advantage-icon" style="background: linear-gradient(135deg, #FEE2E2, #FECACA);">
+                        <svg class="w-10 h-10 text-red-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="font-display text-2xl font-bold text-gray-900 mb-4">24/7 Customer Support</h3>
+                    <h3 class="font-accent text-2xl font-bold text-gray-900 mb-4">24/7 Customer Support</h3>
                     <p class="text-gray-600 leading-relaxed text-lg">
-                        Dedicated customer service team providing round-the-clock support, real-time order tracking, and personalized assistance for all your business needs.
+                        Our dedicated team provides round-the-clock support, real-time order tracking, and personalized assistance for all your business needs.
                     </p>
                 </div>
                 
                 <div class="advantage-card reveal-up stagger-delay" style="--delay: 6">
-                    <div class="advantage-icon" style="background: linear-gradient(135deg, #FEF3C7, #FDE68A);">
-                        <svg class="w-10 h-10 text-yellow-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                    <div class="advantage-icon" style="background: linear-gradient(135deg, #ECFDF5, #D1FAE5);">
+                        <svg class="w-10 h-10 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
                         </svg>
                     </div>
-                    <h3 class="font-display text-2xl font-bold text-gray-900 mb-4">Innovation & Customization</h3>
+                    <h3 class="font-accent text-2xl font-bold text-gray-900 mb-4">Innovation & Customization</h3>
                     <p class="text-gray-600 leading-relaxed text-lg">
-                        Advanced processing facilities and R&D capabilities enabling custom formulations, private labeling, and innovative product development tailored to your market requirements.
+                        Our advanced facilities enable custom formulations, private labeling, and innovative product development tailored to your market requirements.
                     </p>
                 </div>
             </div>
@@ -1004,7 +935,7 @@
     <section id="process" class="py-24 process-container relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-20 reveal-up">
-                <h2 class="font-display text-5xl md:text-6xl font-bold text-gray-900 mb-6">Our Process</h2>
+                <h2 class="font-display text-5xl md:text-6xl font-bold text-gray-900 mb-6">Our Export Process</h2>
                 <div class="w-24 h-1 mx-auto mb-8" style="background: linear-gradient(90deg, var(--primary-gold), var(--emerald));"></div>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                     From source to your doorstep - our streamlined export process
@@ -1016,59 +947,49 @@
                     <div class="process-progress" id="process-progress"></div>
                 </div>
                 
-                <!-- Step 1: Source -->
+                <!-- Step 1: Sourcing -->
                 <div class="process-step reveal-up stagger-delay" style="--delay: 1">
                     <div class="step-circle" style="background: linear-gradient(135deg, #ECFDF5, #D1FAE5);">
                         <svg class="step-icon text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="font-display text-xl font-bold text-gray-900 mb-3">Source</h3>
-                    <p class="text-gray-600 leading-relaxed">Partnering with trusted producers for premium-quality sourcing.</p>
+                    <h3 class="font-accent text-xl font-bold text-gray-900 mb-3">Sourcing</h3>
+                    <p class="text-gray-600 leading-relaxed">We carefully select and source products from our extensive network of trusted suppliers.</p>
                 </div>
 
-                <!-- Step 2: Verify -->
+                <!-- Step 2: Processing -->
                 <div class="process-step reveal-up stagger-delay" style="--delay: 2">
                     <div class="step-circle" style="background: linear-gradient(135deg, #DBEAFE, #BFDBFE);">
                         <svg class="step-icon text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="font-display text-xl font-bold text-gray-900 mb-3">Verify</h3>
-                    <p class="text-gray-600 leading-relaxed">Ensuring rigorous quality checks and certification compliance.</p>
+                    <h3 class="font-accent text-xl font-bold text-gray-900 mb-3">Processing</h3>
+                    <p class="text-gray-600 leading-relaxed">Our state-of-the-art facilities ensure hygienic and efficient processing of all goods.</p>
                 </div>
 
-                <!-- Step 3: Pack -->
+                <!-- Step 3: Quality Check -->
                 <div class="process-step reveal-up stagger-delay" style="--delay: 3">
                     <div class="step-circle" style="background: linear-gradient(135deg, #F3E8FF, #E9D5FF);">
                         <svg class="step-icon text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                         </svg>
                     </div>
-                    <h3 class="font-display text-xl font-bold text-gray-900 mb-3">Pack</h3>
-                    <p class="text-gray-600 leading-relaxed">Providing secure, custom packaging for global transport.</p>
+                    <h3 class="font-accent text-xl font-bold text-gray-900 mb-3">Quality Check</h3>
+                    <p class="text-gray-600 leading-relaxed">Every batch undergoes rigorous internal quality checks to ensure it meets our high standards.</p>
                 </div>
 
-                <!-- Step 4: Ship -->
+                <!-- Step 4: Export -->
                 <div class="process-step reveal-up stagger-delay" style="--delay: 4">
                     <div class="step-circle" style="background: linear-gradient(135deg, #FEF3C7, #FDE68A);">
                         <svg class="step-icon text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
                         </svg>
                     </div>
-                    <h3 class="font-display text-xl font-bold text-gray-900 mb-3">Ship</h3>
-                    <p class="text-gray-600 leading-relaxed">Managing seamless logistics and timely global delivery.</p>
-                </div>
-
-                <!-- Step 5: Support -->
-                <div class="process-step reveal-up stagger-delay" style="--delay: 5">
-                    <div class="step-circle" style="background: linear-gradient(135deg, #FEE2E2, #FECACA);">
-                        <svg class="step-icon text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="font-display text-xl font-bold text-gray-900 mb-3">Support</h3>
-                    <p class="text-gray-600 leading-relaxed">Offering long-term customer care and supply solutions.</p>
+                    <h3 class="font-accent text-xl font-bold text-gray-900 mb-3">Export</h3>
+                    <p class="text-gray-600 leading-relaxed">We handle all logistics to ensure timely and safe delivery to our clients worldwide.</p>
                 </div>
             </div>
         </div>
@@ -1088,7 +1009,7 @@
             <div class="contact-grid">
                 <div class="reveal-up stagger-delay" style="--delay: 1">
                     <div class="contact-info-card">
-                        <h3 class="font-display text-3xl font-bold mb-8">Get In Touch</h3>
+                        <h3 class="font-accent text-3xl font-bold mb-8 italic">Get In Touch</h3>
                         
                         <div class="contact-method">
                             <div class="contact-icon">
@@ -1137,7 +1058,7 @@
                                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.106"/>
                                 </svg>
                             </div>
-                            <h3 class="font-display text-3xl font-bold mb-4">Start Your Order Now</h3>
+                            <h3 class="font-accent text-3xl font-bold mb-4 italic">Start Your Order Now</h3>
                             <p class="text-lg text-green-100 mb-8 leading-relaxed">
                                 Connect instantly with our export specialists. Get quotes, product samples, and personalized assistance for your Sri Lankan spice and food product requirements.
                             </p>
@@ -1212,114 +1133,13 @@
     </div>
 
     <!-- Scroll to Top Button -->
-    <button class="fixed bottom-20 right-6 bg-yellow-600 hover:bg-yellow-700 text-white p-3 rounded-full shadow-lg opacity-0 transition-all duration-300 transform hover:scale-110 z-50" id="scroll-to-top" onclick="scrollToTop()">
+    <button class="fixed bottom-20 right-6 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg opacity-0 transition-all duration-300 transform hover:scale-110 z-50" id="scroll-to-top" onclick="scrollToTop()">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
         </svg>
     </button>
 
     <script>
-        // Advanced 3D Hero Background
-        function initHero3D() {
-            const canvas = document.getElementById('hero-canvas');
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
-            
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setClearColor(0x000000, 0);
-            
-            // Create floating geometric spices
-            const geometries = [
-                new THREE.SphereGeometry(0.5, 16, 12),
-                new THREE.ConeGeometry(0.3, 1.2, 8),
-                new THREE.OctahedronGeometry(0.4),
-                new THREE.CylinderGeometry(0.2, 0.2, 0.8, 8),
-                new THREE.TetrahedronGeometry(0.5),
-            ];
-            
-            const materials = [
-                new THREE.MeshPhongMaterial({ color: 0xD4AF37, transparent: true, opacity: 0.7 }),
-                new THREE.MeshPhongMaterial({ color: 0x10B981, transparent: true, opacity: 0.6 }),
-                new THREE.MeshPhongMaterial({ color: 0xEA580C, transparent: true, opacity: 0.8 }),
-                new THREE.MeshPhongMaterial({ color: 0xDC2626, transparent: true, opacity: 0.7 }),
-                new THREE.MeshPhongMaterial({ color: 0x92400E, transparent: true, opacity: 0.6 }),
-            ];
-            
-            const ambientLight = new THREE.AmbientLight(0x404040, 0.4);
-            scene.add(ambientLight);
-            
-            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6);
-            directionalLight.position.set(10, 10, 5);
-            scene.add(directionalLight);
-            
-            const objects = [];
-            
-            for (let i = 0; i < 60; i++) {
-                const geometry = geometries[Math.floor(Math.random() * geometries.length)];
-                const material = materials[Math.floor(Math.random() * materials.length)];
-                const mesh = new THREE.Mesh(geometry, material);
-                
-                mesh.position.x = (Math.random() - 0.5) * 50;
-                mesh.position.y = (Math.random() - 0.5) * 30;
-                mesh.position.z = (Math.random() - 0.5) * 50;
-                
-                mesh.rotation.x = Math.random() * 2 * Math.PI;
-                mesh.rotation.y = Math.random() * 2 * Math.PI;
-                
-                scene.add(mesh);
-                objects.push({
-                    mesh: mesh,
-                    rotationSpeed: {
-                        x: (Math.random() - 0.5) * 0.02,
-                        y: (Math.random() - 0.5) * 0.02,
-                        z: (Math.random() - 0.5) * 0.02
-                    },
-                    floatSpeed: Math.random() * 0.02 + 0.01,
-                    floatOffset: Math.random() * Math.PI * 2
-                });
-            }
-            
-            camera.position.z = 20;
-            
-            let mouseX = 0;
-            let mouseY = 0;
-            
-            document.addEventListener('mousemove', (event) => {
-                mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-                mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
-            });
-            
-            function animate() {
-                requestAnimationFrame(animate);
-                
-                const time = Date.now() * 0.001;
-                
-                objects.forEach((obj, index) => {
-                    obj.mesh.rotation.x += obj.rotationSpeed.x;
-                    obj.mesh.rotation.y += obj.rotationSpeed.y;
-                    obj.mesh.rotation.z += obj.rotationSpeed.z;
-                    
-                    obj.mesh.position.y += Math.sin(time * obj.floatSpeed + obj.floatOffset) * 0.02;
-                    obj.mesh.position.x += Math.sin(time * 0.5 + index) * 0.005;
-                });
-                
-                camera.position.x += (mouseX * 3 - camera.position.x) * 0.05;
-                camera.position.y += (mouseY * 3 - camera.position.y) * 0.05;
-                camera.lookAt(scene.position);
-                
-                renderer.render(scene, camera);
-            }
-            
-            animate();
-            
-            window.addEventListener('resize', () => {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            });
-        }
-        
         // WhatsApp Integration
         function openWhatsApp() {
             const phoneNumber = '94766654457';
@@ -1331,7 +1151,7 @@
         // Smooth scrolling
         function scrollToSection(sectionId) {
             const element = document.getElementById(sectionId);
-            const navHeight = 80;
+            const navHeight = 64;
             const elementPosition = element.offsetTop - navHeight;
             
             window.scrollTo({
@@ -1420,14 +1240,13 @@
 
         // Initialize everything
         document.addEventListener('DOMContentLoaded', function() {
-            initHero3D();
             initScrollAnimations();
             
             // Initial hero animation
             setTimeout(() => {
-                document.querySelector('.hero-content .reveal-up').classList.add('visible');
+                document.querySelector('.hero-content-minimal .reveal-up').classList.add('visible');
             }, 500);
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'975e731b44255f63',t:'MTc1NjMyNzkxNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'976617c7a7cd9cb7',t:'MTc1NjQwODA2MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
